@@ -75,7 +75,7 @@ router.post(
  *     parameters:
  *       - in: path
  *         name: id
- *         schema:  
+ *         schema:
  *           type: string
  *           format: uuid
  *         required: true
@@ -113,8 +113,8 @@ router.get("/", authenticate, allowRoles("ADMIN"), userController.getUsers);
  *     parameters:
  *       - in: path
  *         name: id
- *         schema: 
- *           type: string 
+ *         schema:
+ *           type: string
  *           format: uuid
  *         required: true
  *     responses:

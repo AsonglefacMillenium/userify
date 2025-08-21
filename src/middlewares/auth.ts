@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 export interface AuthRequest extends Request {
-  user?: { id: number; role: "ADMIN" | "USER" };
+  user?: { id: string; role: "ADMIN" | "USER" };
 }
 
 export const authenticate = (req: AuthRequest, res: Response, next: NextFunction) => {
@@ -10,7 +10,7 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: number; role: "ADMIN" | "USER" };
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: string; role: "ADMIN" | "USER" };
     req.user = decoded;
     next();
   } catch {

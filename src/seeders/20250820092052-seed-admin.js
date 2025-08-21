@@ -14,12 +14,12 @@ module.exports = {
         role: "ADMIN",
         status: "ACTIVE",
         createdAt: new Date(),
-        updatedAt: new Date()
-      }
+        updatedAt: new Date(),
+      },
     ]);
   },
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete("Users", { email: "admin@example.com" });
-  }
+  },
 };

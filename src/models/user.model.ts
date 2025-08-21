@@ -7,7 +7,7 @@ export type Status = "ACTIVE" | "INACTIVE";
 interface UserAttributes {
   id: string;
   fullName: string;
-  birthDate: string; // store as DATEONLY
+  birthDate: string;
   email: string;
   password: string;
   role: Role;
@@ -39,7 +39,11 @@ class User
 
 User.init(
   {
-    id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
+    },
     fullName: { type: DataTypes.STRING, allowNull: false },
     birthDate: { type: DataTypes.DATEONLY, allowNull: false },
     email: { type: DataTypes.STRING, allowNull: false, unique: true },

@@ -7,11 +7,11 @@ const swaggerSpec = swaggerJsdoc({
     servers: [{ url: "http://localhost:5000" }],
     components: {
       securitySchemes: {
-        bearerAuth: { type: "http", scheme: "bearer", bearerFormat: "JWT" }
-      }
-    }
+        bearerAuth: { type: "http", scheme: "bearer", bearerFormat: "JWT" },
+      },
+    },
   },
-  apis: ["./src/routes/*.ts"]
+  apis: ["./src/routes/*.ts"],
 });
 
 export default swaggerSpec;
