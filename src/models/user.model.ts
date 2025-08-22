@@ -4,7 +4,7 @@ import sequelize from "../config/db";
 export type Role = "ADMIN" | "USER";
 export type Status = "ACTIVE" | "INACTIVE";
 
-interface UserAttributes {
+export interface UserAttributes {
   id: string;
   fullName: string;
   birthDate: string;
@@ -36,6 +36,8 @@ class User
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
+
+export type SafeUser = Omit<UserAttributes, "password">;
 
 User.init(
   {
